@@ -85,7 +85,7 @@ class TocMachine(GraphMachine):
         self.go_back(update)
 
     def on_exit_store(self, update):
-        print('Leaving 1')
+        print('go back')
 
     def on_enter_stock(self, update):
         update.message.reply_text("當日股市\n")
@@ -94,7 +94,7 @@ class TocMachine(GraphMachine):
         self.go_back(update)
 
     def on_exit_stock(self, update):
-        print('Leaving 3')
+        print('go back')
 
     def on_enter_borrow(self, update):
         update.message.reply_text("各銀行信貸利息\n")
@@ -103,7 +103,7 @@ class TocMachine(GraphMachine):
         self.go_back(update)
 
     def on_exit_borrow(self, update):
-        print('Leaving 2')
+        print('go back')
 
     def on_enter_num(self, update):
         update.message.reply_text("各銀行代碼\n")
@@ -128,7 +128,7 @@ class TocMachine(GraphMachine):
         self.go_back(update)
 
     def on_exit_num(self, update):
-        print('Leaving 5')
+        print('go back')
 
     def on_enter_lie(self, update):
         update.message.reply_photo("http://pic.pimg.tw/pali0621/1186583189.jpg")
@@ -142,4 +142,4 @@ class TocMachine(GraphMachine):
         self.go_back(update)
 
     def on_exit_lie(self, update):
-        print('Leaving 4')
+        print('go back')

@@ -1,61 +1,24 @@
-# TOC Project 2017
+# README
+![](./img/show-fsm.png)
 
-Template Code for TOC Project 2017
+## 說明
+讓你能快速搜尋有關於資金之資訊
 
-A telegram bot based on a finite state machine
-
-## Setup
-
-### Prerequisite
-* Python 3
-
-#### Install Dependency
-```sh
-pip install -r requirements.txt
-```
-
-* pygraphviz (For visualizing Finite State Machine)
-    * [Setup pygraphviz on Ubuntu](http://www.jianshu.com/p/a3da7ecc5303)
-
-### Secret Data
-
-`API_TOKEN` and `WEBHOOK_URL` in app.py **MUST** be set to proper values.
-Otherwise, you might not be able to run your code.
-
-### Run Locally
-You can either setup https server or using `ngrok` as a proxy.
-
-**`ngrok` would be used in the following instruction**
-
-```sh
-ngrok http 5000
-```
-
-After that, `ngrok` would generate a https URL.
-
-You should set `WEBHOOK_URL` (in app.py) to `your-https-URL/hook`.
-
-#### Run the sever
-
-```sh
-python3 app.py
-```
-
-## Finite State Machine
-![fsm](./img/show-fsm.png)
-
-## Usage
-The initial state is set to `user`.
-
-Every time `user` state is triggered to `advance` to another state, it will `go_back` to `user` state after the bot replies corresponding message.
-
-* user
-	* Input: "go to state1"
-		* Reply: "I'm entering state1"
-
-	* Input: "go to state2"
-		* Reply: "I'm entering state2"
+## 使用方式
+照著括號內之文字輸入，或回答問題，即會回答資訊
+###  步驟
+輸入代碼-->利用爬蟲輸出銀行代碼
+輸入定存-->輸出定存利率計算之網站
+輸入信貸-->輸出銀行信貸之利息計算之網站
+輸入股市-->輸出當日股市之網站
+輸入詐騙-->輸出兩張反詐騙圖片
+輸入自殺-->輸出真的假的-->if 輸入真的-->輸出男的女的-->if輸入男的-->輸出圖片及文字
+輸入自殺-->輸出真的假的-->if 輸入真的-->輸出男的女的-->if輸入女的-->輸出圖片及文字
+輸入自殺-->輸出真的假的-->if 輸入假的-->輸出髒話
 
 
-## Author
-[Lee-W](https://github.com/Lee-W)
+
+
+
+
+
