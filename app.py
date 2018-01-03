@@ -5,37 +5,62 @@ import telegram
 from flask import Flask, request, send_file
 
 from fsm import TocMachine
+import requests
+from bs4 import BeautifulSoup
 
-
-API_TOKEN = 'Your Telegram API Token'
-WEBHOOK_URL = 'Your Webhook URL'
+API_TOKEN = '546365152:AAEpWlT2pQ2KRKHfCvN1r80btyx88Cn9Fxk'
+WEBHOOK_URL = 'https://a49feb28.ngrok.io/hook'
 
 app = Flask(__name__)
 bot = telegram.Bot(token=API_TOKEN)
 machine = TocMachine(
     states=[
         'user',
-        'state1',
-        'state2'
+        '1',
+        '2',
+        '3',
+        '4',
+        '5'
     ],
     transitions=[
         {
             'trigger': 'advance',
             'source': 'user',
-            'dest': 'state1',
-            'conditions': 'is_going_to_state1'
+            'dest': '1',
+            'conditions': 'is_going_to_1'
         },
         {
             'trigger': 'advance',
             'source': 'user',
-            'dest': 'state2',
-            'conditions': 'is_going_to_state2'
+            'dest': '2',
+            'conditions': 'is_going_to_2'
+        },
+        {
+            'trigger': 'advance',
+            'source': 'user',
+            'dest': '3',
+            'conditions': 'is_going_to_3'
+        },
+        {
+            'trigger': 'advance',
+            'source': 'user',
+            'dest': '4',
+            'conditions': 'is_going_to_4'
+        },
+        {
+            'trigger': 'advance',
+            'source': 'user',
+            'dest': '5',
+            'conditions': 'is_going_to_5'
         },
         {
             'trigger': 'go_back',
             'source': [
-                'state1',
-                'state2'
+                '1',
+                '2',
+                '3',
+                '4',
+                '5'
             ],
             'dest': 'user'
         }
