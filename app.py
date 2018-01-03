@@ -16,51 +16,89 @@ bot = telegram.Bot(token=API_TOKEN)
 machine = TocMachine(
     states=[
         'user',
-        '1',
-        '2',
-        '3',
-        '4',
-        '5'
+        'store',
+        'borrow',
+        'stock',
+        'lie',
+        'num',
+        'die1',
+        'die21',
+        'die22',
+        'die31',
+        'die32',
     ],
     transitions=[
         {
             'trigger': 'advance',
             'source': 'user',
-            'dest': '1',
-            'conditions': 'is_going_to_1'
+            'dest': 'store',
+            'conditions': 'is_going_to_store'
         },
         {
             'trigger': 'advance',
             'source': 'user',
-            'dest': '2',
-            'conditions': 'is_going_to_2'
+            'dest': 'borrow',
+            'conditions': 'is_going_to_borrow'
         },
         {
             'trigger': 'advance',
             'source': 'user',
-            'dest': '3',
-            'conditions': 'is_going_to_3'
+            'dest': 'stock',
+            'conditions': 'is_going_to_stock'
         },
         {
             'trigger': 'advance',
             'source': 'user',
-            'dest': '4',
-            'conditions': 'is_going_to_4'
+            'dest': 'lie',
+            'conditions': 'is_going_to_lie'
         },
         {
             'trigger': 'advance',
             'source': 'user',
-            'dest': '5',
-            'conditions': 'is_going_to_5'
+            'dest': 'num',
+            'conditions': 'is_going_to_num'
+        },
+        {
+            'trigger': 'advance',
+            'source': 'user',
+            'dest': 'die1',
+            'conditions': 'is_going_to_die1'
+        },
+        {
+            'trigger': 'advance',
+            'source': 'die1',
+            'dest': 'die21',
+            'conditions': 'is_going_to_die21'
+        },
+        {
+            'trigger': 'advance',
+            'source': 'die1',
+            'dest': 'die22',
+            'conditions': 'is_going_to_die22'
+        },
+        {
+            'trigger': 'advance',
+            'source': 'die21',
+            'dest': 'die31',
+            'conditions': 'is_going_to_die31'
+        },
+        {
+            'trigger': 'advance',
+            'source': 'die21',
+            'dest': 'die32',
+            'conditions': 'is_going_to_die32'
         },
         {
             'trigger': 'go_back',
             'source': [
-                '1',
-                '2',
-                '3',
-                '4',
-                '5'
+                'store',
+                'borrow',
+                'stock',
+                'lie',
+                'num',
+                'die22',
+                'die31',
+                'die32'
             ],
             'dest': 'user'
         }
